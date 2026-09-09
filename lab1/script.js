@@ -9,7 +9,7 @@ function triangle(val1, type1, val2, type2)
     console.log("Значення мають бути додатними числами");
     return "Zero or negative input";
   }
-  var a, b, c, alpha, beta;
+  let a, b, c, alpha, beta;
 
   if (type1 == "leg" && type2 == "leg") {
     a = val1;

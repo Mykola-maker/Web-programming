@@ -3,8 +3,7 @@ console.log("Типи: leg (катет), hypotenuse, adjacent angle (приле�
 console.log("Приклад: triangle(4, \"leg\", 8, \"hypotenuse\")");
 console.log("Величини кутів записуються в градусах!");
 
-function triangle(val1, type1, val2, type2)
-{
+function triangle(val1, type1, val2, type2) {
   if (val1 <= 0 || val2 <= 0) {
     console.log("Значення мають бути додатними числами");
     return "Zero or negative input";

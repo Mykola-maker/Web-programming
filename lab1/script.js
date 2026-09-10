@@ -89,6 +89,12 @@ function triangle(val1, type1, val2, type2) {
     return "Некоректний кут";
   }
 
+  a = a.toPrecision(14);
+  b = b.toPrecision(14);
+  c = c.toPrecision(14);
+  alpha = alpha.toPrecision(14);
+  beta = beta.toPrecision(14);
+  
   console.log("a =", a);
   console.log("b =", b);
   console.log("c =", c);

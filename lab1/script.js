@@ -5,7 +5,7 @@ console.log("Величини кутів записуються в градус�
 
 function triangle(val1, type1, val2, type2) {
 
-  const EPSILON = 0.000001;
+  const EPSILON = 0.001;
 
   if (typeof val1 !== "number" || typeof val2 !== "number" ||
       val1 <= EPSILON || val2 <= EPSILON) {

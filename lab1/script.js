@@ -4,10 +4,15 @@ console.log("Приклад: triangle(4, \"leg\", 8, \"hypotenuse\")");
 console.log("Величини кутів записуються в градусах!");
 
 function triangle(val1, type1, val2, type2) {
-  if (val1 <= 0 || val2 <= 0) {
-    console.log("Значення мають бути додатними числами");
+
+  const EPSILON = 0.001;
+
+  if (typeof val1 !== "number" || typeof val2 !== "number" ||
+      val1 <= EPSILON || val2 <= EPSILON) {
+    console.log("Значення близькі до граничних! Введіть інші значення(нормальні бажано...)");
     return "Zero or negative input";
   }
+
   let a, b, c, alpha, beta;
 
   if (type1 == "leg" && type2 == "leg") {
@@ -18,7 +23,9 @@ function triangle(val1, type1, val2, type2) {
     beta = 90 - alpha;
   }
 
-  else if ((type1 === "leg" && type2 === "hypotenuse") || (type1 === "hypotenuse" && type2 === "leg")) {
+  else if ((type1 === "leg" && type2 === "hypotenuse") ||
+           (type1 === "hypotenuse" && type2 === "leg")) {
+
     if (type1 === "leg") {
       a = val1;
       c = val2;
@@ -27,7 +34,7 @@ function triangle(val1, type1, val2, type2) {
       c = val1;
     }
 
-    if (a >= c) {
+    if (a >= c - EPSILON) {
       console.log("Катет не може бути більшим або рівним гіпотенузі");
       return "Задайте коректні параметри";
     }
@@ -37,7 +44,9 @@ function triangle(val1, type1, val2, type2) {
     beta = 90 - alpha;
   }
 
-  else if ((type1 === "leg" && type2 === "opposite angle") || (type1 === "opposite angle" && type2 === "leg")) {
+  else if ((type1 === "leg" && type2 === "opposite angle") ||
+           (type1 === "opposite angle" && type2 === "leg")) {
+
     if (type1 === "leg") {
       a = val1;
       alpha = val2;
@@ -46,12 +55,19 @@ function triangle(val1, type1, val2, type2) {
       alpha = val1;
     }
 
+    if (alpha <= EPSILON || alpha >= 90 - EPSILON) {
+      console.log("Кут має бути між 0 і 90 градусів");
+      return "Некоректний кут";
+    }
+
     beta = 90 - alpha;
     b = a / Math.tan(alpha * Math.PI / 180);
     c = a / Math.sin(alpha * Math.PI / 180);
   }
 
-  else if ((type1 === "leg" && type2 === "adjacent angle") || (type1 === "adjacent angle" && type2 === "leg")) {
+  else if ((type1 === "leg" && type2 === "adjacent angle") ||
+           (type1 === "adjacent angle" && type2 === "leg")) {
+
     if (type1 === "leg") {
       a = val1;
       beta = val2;
@@ -60,18 +76,30 @@ function triangle(val1, type1, val2, type2) {
       beta = val1;
     }
 
+    if (beta <= EPSILON || beta >= 90 - EPSILON) {
+      console.log("Кут має бути між 0 і 90 градусів");
+      return "Некоректний кут";
+    }
+
     alpha = 90 - beta;
     b = a / Math.tan(alpha * Math.PI / 180);
     c = a / Math.sin(alpha * Math.PI / 180);
   }
 
-  else if ((type1 === "hypotenuse" && type2 === "angle") || (type1 === "angle" && type2 === "hypotenuse")) {
+  else if ((type1 === "hypotenuse" && type2 === "angle") ||
+           (type1 === "angle" && type2 === "hypotenuse")) {
+
     if (type1 === "hypotenuse") {
       c = val1;
       alpha = val2;
     } else {
       c = val2;
       alpha = val1;
+    }
+
+    if (alpha <= EPSILON || alpha >= 90 - EPSILON) {
+      console.log("Кут має бути між 0 і 90 градусів");
+      return "Некоректний кут";
     }
 
     beta = 90 - alpha;
@@ -84,17 +112,12 @@ function triangle(val1, type1, val2, type2) {
     return "failed";
   }
 
-  if (alpha <= 0 || alpha >= 90) {
-    console.log("Кут має бути між 0 і 90 градусів");
-    return "Некоректний кут";
-  }
+  a = Math.round(a * 1000000) / 1000000;
+  b = Math.round(b * 1000000) / 1000000;
+  c = Math.round(c * 1000000) / 1000000;
+  alpha = Math.round(alpha * 1000000) / 1000000;
+  beta = Math.round(beta * 1000000) / 1000000;
 
-  a = a.toPrecision(14);
-  b = b.toPrecision(14);
-  c = c.toPrecision(14);
-  alpha = alpha.toPrecision(14);
-  beta = beta.toPrecision(14);
-  
   console.log("a =", a);
   console.log("b =", b);
   console.log("c =", c);

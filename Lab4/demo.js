@@ -56,4 +56,5 @@ let denseArray = createDenseArray(100);
 let sparseArray = createSparseArray(100);
 
 runAllAlgorithms(denseArray, "1. Нерозріджений масив");
+console.log(" ");
 runAllAlgorithms(sparseArray, "2. Розріджений масив (з undefined)");

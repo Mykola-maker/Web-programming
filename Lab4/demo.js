@@ -1,7 +1,7 @@
 function createDenseArray(size) {
     let arr = [];
     for (let i = 0; i < size; i++) {
-        arr[i] = Math.floor(Math.random() * 1000) - 500; // від -500 до 499
+        arr[i] = Math.floor(Math.random() * 200) - 50;
     }
     return arr;
 }

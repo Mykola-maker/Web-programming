@@ -1,5 +1,6 @@
-function TriangleArea(base = 5, height = 4) {
-    let area = (base * height) / 2;
+//завдання 1
+function TriangleArea(a = 5, b = 4) {
+    let area = (a * b) / 2;
     console.log("Площа трикутника:", area);
     return area;
 }
@@ -7,91 +8,64 @@ function TriangleArea(base = 5, height = 4) {
 TriangleArea(3, 6);
 TriangleArea();
 
-function Jet(color, avgSpeed, maxAltitude, brand, pointOfDestination) {
-    this.color = color;
-    this.avgSpeed = avgSpeed;
-    this.maxAltitude = maxAltitude;
-    this.brand = brand;
-    this.pointOfDestination = pointOfDestination;
+//завдання 2
+function Jet(color, avgSpeed, max_altitude, brand, point_of_destination) {
+    Jet.color = color;
+    Jet.avgSpeed = avgSpeed;
+    Jet.max_altitude = max_altitude;
+    Jet.brand = brand;
+    Jet.point_of_destination = point_of_destination;
 }
 
-Jet.prototype.AssignPilot = function(name, yearsOfExperience, hasChildren) {
-    this.pilot = {
-        name: name,
-        yearsOfExperience: yearsOfExperience,
-        hasChildren: hasChildren
+Jet.prototype.AssignPilot = function(name,years_of_experience,hasChildren) {
+    this.pylot = {
+        name:name,
+        years_of_experience:years_of_experience,
+        hasChildren:hasChildren
     };
 };
 
-let jet1 = new Jet(
-    "white",
-    850.5,
-    12000,
-    "Boeing",
-    "London"
-);
-
-jet1.AssignPilot(
-    "John Smith",
-    12,
-    true
-);
-
+let jet1 = new Jet("white", 850.5, 12000, "AN", "Kyiv");
+jet1.AssignPilot("Mykola Popovych", 15, true);
 console.log("Jet:", jet1);
 
-
-//---
+//завдання 3
 class EquilateralTriangle {
-
     constructor(equalSide) {
         this.equalSide = equalSide;
     }
-
-    // Getter
     get side() {
         return this.equalSide;
     }
 }
 
+//завдання 4
 class IsoscelesTriangle extends EquilateralTriangle {
-
     constructor(equalSide, base) {
         super(equalSide);
         this.base = base;
     }
-
     static area(a, b) {
-        return (b / 4) * Math.sqrt(4 * a * a - b * b);
+        return (b / 4) * Math.sqrt(4 * a**2 - b**2);
     }
 }
 
 let triangle1 = new EquilateralTriangle(6);
-
 console.log("EquilateralTriangle:", triangle1);
 console.log("Сторона:", triangle1.side);
 
-
 let triangle2 = new IsoscelesTriangle(5, 6);
-
 console.log("IsoscelesTriangle:", triangle2);
+console.log("Площа рівнобедреного трикутника:", IsoscelesTriangle.area(triangle2.equalSide, triangle2.base));
 
-console.log(
-    "Площа рівнобедреного трикутника:",
-    IsoscelesTriangle.area(triangle2.equalSide, triangle2.base)
-);
-
-
-//---
-
+//завдання 5
 function AddGenerator(number) {
-
     return function(value) {
         return number + value;
     };
 }
 
-let add5 = AddGenerator(5);
-let add10 = AddGenerator(10);
-
-console.log("AddGenerator(5), 3 =", add5(3));
-console.log("AddGenerator(10), 7 =", add10(7));
+let add1 = AddGenerator(5);
+let add2 = AddGenerator(10);
+console.log("AddGenerator(5) + 3 =", add1(3));
+console.log("AddGenerator(10) + 7 =", add2(7));

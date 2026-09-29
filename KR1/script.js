@@ -1,8 +1,8 @@
 //завдання 1
 function TriangleArea(a = 5, b = 4) {
-    let area = (a * b) / 2;
-    console.log("Площа трикутника:", area);
-    return area;
+    let S = (a * b) / 2;
+    console.log("Площа трикутника:", S);
+    return S;
 }
 
 TriangleArea(3, 6);

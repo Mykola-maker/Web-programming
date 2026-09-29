@@ -67,5 +67,5 @@ function AddGenerator(number) {
 
 let add1 = AddGenerator(5);
 let add2 = AddGenerator(10);
-console.log("AddGenerator(5) + 3 =", add1(3));
-console.log("AddGenerator(10) + 7 =", add2(7));
+console.log("AddGenerator(5) і число 3 =", add1(3));
+console.log("AddGenerator(10) і число 7 =", add2(7));

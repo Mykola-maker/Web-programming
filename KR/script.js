@@ -51,12 +51,12 @@ class IsoscelesTriangle extends EquilateralTriangle {
 }
 
 let triangle1 = new EquilateralTriangle(6);
-console.log("EquilateralTriangle:", triangle1);
+console.log("Рівносторонній трикутник:", triangle1);
 console.log("Сторона:", triangle1.side);
 
 let triangle2 = new IsoscelesTriangle(5, 6);
-console.log("IsoscelesTriangle:", triangle2);
-console.log("Площа рівнобедреного трикутника:", IsoscelesTriangle.area(triangle2.equalSide, triangle2.base));
+console.log("Рівнобедрений трикутник:", triangle2);
+console.log("Площа:", IsoscelesTriangle.area(triangle2.equalSide, triangle2.base));
 
 //завдання 5
 function AddGenerator(number) {
